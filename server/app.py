@@ -1,4 +1,4 @@
-from flask import Flask, request, make_response, jsonify
+from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_migrate import Migrate
 
@@ -14,13 +14,16 @@ migrate = Migrate(app, db)
 
 db.init_app(app)
 
+
 @app.route('/messages')
 def messages():
-    return ''
+    return jsonify([])
+
 
 @app.route('/messages/<int:id>')
 def messages_by_id(id):
-    return ''
+    return jsonify({})
+
 
 if __name__ == '__main__':
     app.run(port=5555)
